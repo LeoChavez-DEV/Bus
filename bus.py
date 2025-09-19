@@ -1,23 +1,39 @@
 class bus:
     def Bus():
-        def __init__(self, bus, plazas):
+        def __init__(self, idBus, bus, plazasLibres, plazasComletas):
+            self.setIdBus(idBus)
             self.setBus(bus)
-            self.setPlazas(plazas)
+            self.setPlazasLibres(plazasLibres)
+            self.setPlazasComletas(plazasComletas)
 
-        def getBus(self, bus):
-            return self.bus
-        
-        def getPlazas(self, plazas):
-            return self.plazas
+        # Getters      
+        def getIdBus(self):
+            return self.__idBus
+
+        def getBus(self):
+            return self.__bus
+
+        def getPlazasLibres(self):
+            return self.__plazasLibres
+
+        def getPlazasComletas(self):
+            return self.__plazasComletas
+
+        # Setters
+        def setIdBus(self, idBus):
+            self.__idBus = idBus
         
         def setBus(self, bus):
-            return self.__bus
+            self.__bus = bus
         
-        def setPlazas(self, plazas):
-            return self.__plazas
+        def setPlazasCompletas(self, plazasComletas):
+            self.__plazasCompletas = plazasComletas
         
+        def setPlazasLibres(self, plazasLibres):
+            self.__plazasLibres = plazasLibres
+
         def __str__(self):
-            return f"Buses: {self.getBus()}, plazas: {self.getPlazas()}"
+            return f"ID: {self.getIdBus()}, Buses: {self.getBus()}, plazaCompletas: {self.getPlazasCompletas()}, plazasLibres: {self.getPlazasLibres()}"
         
         
 
