@@ -42,11 +42,23 @@ while True:
 
     elif opcion == "1":  
         idBus = input("ID del nuevo bus: ")
+        if idBus.strip() == "":
+            print("ID inválido. No puede estar vacío.")
+            continue
+
+        if idBus in [b.getIdBus() for b in buses]:
+            print("ID ya existe. Elija otro.")
+            continue
+
+        if len(idBus) > 5:
+            print("ID inválido. Máximo 5 caracteres.")
+            continue
+
         capacidad = input("Capacidad del nuevo bus: ")
-        if capacidad.isdigit() and int(capacidad) > 0 and int(capacidad) <= 100:
+        if capacidad.isdigit() and int(capacidad) >= 5 and int(capacidad) <= 100:
             añadir_bus(idBus, int(capacidad))
         else:
-            print("Capacidad inválida. Debe ser un número positivo y menor o igual a 100.") 
+            print("Capacidad inválida. Debe ser un número positivo, mayor o igual a 5 y menor o igual a 100.") 
 
     elif opcion == "2":  
         if not buses:
@@ -61,7 +73,21 @@ while True:
 
         if bus_seleccionado:
             nombre = input("Nombre cliente: ")
+            if nombre.strip() == "":
+                print("Nombre inválido. No puede estar vacío.")
+                continue
+            if len(nombre) > 20:
+                print("Nombre inválido. Máximo 20 caracteres.")
+                continue
+
             apellido = input("Apellido cliente: ")
+            if apellido.strip() == "":
+                print("Apellido inválido. No puede estar vacío.")
+                continue
+            if len(apellido) > 20:
+                print("Apellido inválido. Máximo 20 caracteres.")
+                continue
+
             cliente = Cliente(nombre, apellido)
             billete = Billete(cliente, bus_seleccionado)
             if billete.vender():
