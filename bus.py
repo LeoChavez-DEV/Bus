@@ -33,7 +33,7 @@ class Bus:
 
     def devolverBillete(self, cliente: Cliente):
         for b in self._billetes:
-            if b.cliente.getNombre() == cliente.getNombre() and b.cliente.getApellido() == cliente.getApellido():
+            if b.cliente.getNombre().lower() == cliente.getNombre().lower() and b.cliente.getApellido().lower() == cliente.getApellido().lower():
                 self._billetes.remove(b)
                 return True
         print("No se encontró billete para devolver.")

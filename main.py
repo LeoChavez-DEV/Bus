@@ -12,12 +12,7 @@ Menú:
 0.- Salir
 """
 
-buses = [
-    Bus("V23", 30),
-    Bus("H10", 20),
-    Bus("39", 25),
-    Bus("D40", 15)
-]
+buses = []
 
 def añadir_bus(idBus, capacidad):
     nuevo_bus = Bus(idBus, capacidad)
