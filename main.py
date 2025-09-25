@@ -43,10 +43,10 @@ while True:
     elif opcion == "1":  
         idBus = input("ID del nuevo bus: ")
         capacidad = input("Capacidad del nuevo bus: ")
-        if capacidad.isdigit() and int(capacidad) > 0:
+        if capacidad.isdigit() and int(capacidad) > 0 and int(capacidad) <= 100:
             añadir_bus(idBus, int(capacidad))
         else:
-            print("Capacidad inválida. Debe ser un número positivo.")
+            print("Capacidad inválida. Debe ser un número positivo y menor o igual a 100.") 
 
     elif opcion == "2":  
         if not buses:
