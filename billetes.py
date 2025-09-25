@@ -1,11 +1,13 @@
 from cliente import Cliente
-class Billete():
+from bus import Bus
 
-    # def __init__(self, Cliente):
-    #     Cliente.__init__(self, nombre, apellido)
+class Billete:
+    def __init__(self, cliente: Cliente, bus: Bus):
+        self.setCliente(cliente)
+        self.setBus(bus)
 
+    def vender(self):
+        return self.bus.vender_billete(self.cliente)
     
-
-    
-    
-        
+    def devolver(self):
+        return self.bus.devolver_billete(self.cliente)
