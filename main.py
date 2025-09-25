@@ -11,7 +11,7 @@ Menú:
 5.- Estado de la venta
 0.- Salir
 """
-
+error_nombre = "Texto inválido.\nNo puede estar vacío.\nNo puede tener más de 20 caracteres.\nSolo caracteres alfabéticos.\nSin espacios."
 buses = []
 
 def añadir_bus(idBus, capacidad):
@@ -54,6 +54,11 @@ while True:
             print("ID inválido. Máximo 5 caracteres.")
             continue
 
+        if not idBus.isalnum():
+            print("ID inválido. Solo caracteres alfanuméricos.")
+            continue
+
+
         capacidad = input("Capacidad del nuevo bus: ")
         if capacidad.isdigit() and int(capacidad) >= 5 and int(capacidad) <= 100:
             añadir_bus(idBus, int(capacidad))
@@ -74,18 +79,24 @@ while True:
         if bus_seleccionado:
             nombre = input("Nombre cliente: ")
             if nombre.strip() == "":
-                print("Nombre inválido. No puede estar vacío.")
+                print(error_nombre)
                 continue
             if len(nombre) > 20:
-                print("Nombre inválido. Máximo 20 caracteres.")
+                print(error_nombre)
+                continue
+            if not nombre.isalpha():
+                print(error_nombre)
                 continue
 
             apellido = input("Apellido cliente: ")
             if apellido.strip() == "":
-                print("Apellido inválido. No puede estar vacío.")
+                print(error_nombre)
                 continue
             if len(apellido) > 20:
-                print("Apellido inválido. Máximo 20 caracteres.")
+                print(error_nombre)
+                continue
+            if not apellido.isalpha():
+                print(error_nombre)
                 continue
 
             cliente = Cliente(nombre, apellido)
